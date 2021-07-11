@@ -1,0 +1,224 @@
+@media (max-width: 767.98px) {
+  .Aw-Login .form-container {
+    width: 90%;
+    margin-right: 5%;
+  }
+  .bg-shadow {
+    background-color: transparent;
+  }
+  .Aw-Login {
+    background-size: cover;
+  }
+  .main-login-page .col-md-5 {
+    display: none;
+  }
+  .auth-login-page {
+    width: 100%;
+  }
+  .main-login-page {
+    padding: 30px 15px 15px 15px;
+    text-align: center;
+  }
+  .main-login-page > .row {
+    --bs-gutter-x: none;
+    --bs-gutter-y: none;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 0;
+    margin-right: 0;
+    margin-left: 0;
+  }
+  .form-auth-login {
+    padding: 0;
+  }
+  .auth-login-page.registerPage {
+    padding: 0;
+    height: 100%;
+  }
+  .logo-auth.d-flex.align-items-center {
+    display: block !important;
+  }
+  .steps-auth ul li {
+    padding-right: 10px;
+  }
+  .steps-auth ul li p {
+    font-size: 14px;
+  }
+  .steps-auth ul {
+    display: block;
+    text-align: center;
+  }
+  .steps-auth ul li {
+    display: inline-block;
+    text-align: center;
+    padding: 5px 0;
+  }
+  .steps-auth ul li span {
+    display: block;
+    margin: 0 auto;
+  }
+  .steps-auth ul li:nth-child(2) {
+    padding: 0 20px;
+  }
+  .steps-auth ul li::before {
+    display: none;
+  }
+  .content-dot {
+    display: none;
+  }
+  .single-slider .slider-content h3 {
+    width: 100%;
+    font-size: 20px;
+    line-height: 30px;
+  }
+  .single-slider {
+    height: 70vh;
+    position: relative;
+  }
+
+  .single-dot {
+    padding: 5px;
+  }
+  .mainSlider .slick-slide .single-dot .count {
+    font-size: 2rem;
+    margin: 0 auto;
+  }
+  .slider-main-bg {
+    margin-top: -35px;
+  }
+  .single-new .img-new {
+    height: auto;
+  }
+  .single-new .text-new h4 {
+    line-height: 25px;
+    font-size: 18px;
+  }
+  .single-new {
+    margin-bottom: 15px;
+  }
+  .single-new-small {
+    text-align: center;
+  }
+  .img-new {
+    margin: 0 auto;
+  }
+  .single-new-small .text-new ul {
+    margin-bottom: 0;
+    justify-content: center;
+  }
+  .fancyBox-Custom iframe {
+    width: 90%;
+  }
+  .right-part {
+    text-align: center;
+  }
+  .right-part .contact-info {
+    text-align: right;
+  }
+  .right-part p {
+    font-size: 18px;
+  }
+  .important-links {
+    text-align: center;
+  }
+  .title-footer {
+    text-align: center;
+  }
+  .members-slider .col-md-4 {
+    transform: scale(1) !important;
+  }
+  .breadcrumb {
+    background-size: cover;
+  }
+  .members-slider .single-member {
+    margin-bottom: 15px;
+  }
+  .btn-arrow-awady {
+    display: none;
+  }
+  .about-slider-tabs .nav-tabs .nav-link {
+    padding: 25px 5px;
+    font-size: 12px;
+  }
+  .contact-info li a {
+    width: 100%;
+  }
+  .form-auth-login.form-contact {
+    padding: 15px;
+  }
+  .mobile-navbar {
+    background-color: var(--aw-dark);
+  }
+  .mobile-navbar .navbar-brand {
+    padding: 5px 0;
+    display: inline-block;
+  }
+  .mobile-navbar .navbar-brand img {
+    width: 70px;
+  }
+  .mobile-navbar button {
+    float: left;
+    margin-top: 25px;
+    background-color: transparent !important;
+    border: 0 transparent !important;
+    box-shadow: none !important;
+  }
+  .mobile-navbar button span {
+    width: 30px;
+    height: 3px;
+    border-radius: 5px;
+    background-color: var(--aw-light);
+    display: block;
+  }
+  .mobile-navbar button span:nth-child(2) {
+    margin: 5px 0;
+  }
+  .b-sidebar > .b-sidebar-header {
+    display: none;
+  }
+  .b-sidebar-body .navbar-brand {
+    text-align: center;
+    padding: 40px 15px;
+    display: block;
+    border-bottom: 1px solid #1a284a;
+    margin: 0;
+    box-shadow: none;
+  }
+  .b-sidebar-body .navbar-brand img {
+    width: 120px;
+    margin: 0 auto;
+  }
+  #sidebar-backdrop {
+    background-color: var(--aw-dark) !important;
+  }
+  .nav-bar-mobile-content {
+  }
+  .nav-bar-mobile-content .nav-item {
+    border-bottom: 1px solid #1a284a62;
+  }
+  .nav-bar-mobile-content .nav-item:last-child {
+    border-bottom: 0px solid #1a284a62;
+  }
+  .nav-bar-mobile-content .nav-item a {
+    padding: 20px 15px;
+    color: #fff;
+  }
+  .nav-bar-mobile-content .nav-item a li {
+    border-bottom: 1px solid #1a284a62;
+    display: block;
+  }
+  .content-new-single .title-new {
+    width: 100%;
+  }
+  .content-new-single .title-new h3 {
+    font-size: 18px;
+    line-height: 30px;
+  }
+  .text-right-copy p {
+    text-align: center;
+    padding: 10px;
+  }
+  .text-left-copy {
+    justify-content: center;
+  }
+}

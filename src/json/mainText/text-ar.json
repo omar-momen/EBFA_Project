@@ -1,0 +1,271 @@
+{
+  "data": [
+    {
+      "slider": {
+        "title": "قراءة المزيد"
+      },
+      "about": {
+        "title": "عن الجمعية",
+        "descreption": "تعرف على الجمعية المصرية للاعبي كرة القدم المحترفين",
+        "subtitle_one": {
+          "first": "من",
+          "second": "نحن"
+        },
+        "subtitle_second": {
+          "first": "تاريخ ",
+          "second": "الجمعية"
+        }
+      },
+      "login": {
+        "title": "تسجيل دخول",
+        "mainTitle": "مرحبًا بك من جديد ، يرجى تسجيل الدخول إلى حسابك.",
+        "form": {
+          "usernamePlaceholder": "ادخل اسم المستخدم",
+          "passwordPlaceholder": "إدخل كلمة المرور هنا",
+          "button": "تسجيل دخول"
+        },
+        "dontHaveAccount": "ليس لديك عضوية ؟",
+        "joinNow": "الإنضمام الأن",
+        "forgotPassword": "هل نسيت كلمة المرور ؟"
+      },
+      "forgetPassword": {
+        "form": {
+          "phone": "رقم الموبايل",
+          "code": "كود التفعيل",
+          "password": " كلمة المرورالجديدة"
+        },
+        "title": "نسيت كلمة المرور",
+        "mainTitle": "ادخل رقم الهاتف لأرسال كود التفعيل",
+        "send": "ارسال"
+      },
+      "profile": {
+        "breadcrumbTitle": "حسابي",
+        "breadcrumbContent": "يمكنك تعديل البيانات المدخلة مسبقا",
+        "title": "حسابي",
+        "single_player": {
+          "name": "الاسم",
+          "placeOfBirth": "محل الميلاد",
+          "age": "السن",
+          "section": "القسم",
+          "currentClub": "النادي الحالي",
+          "videos": {
+            "one": "فيديوهات",
+            "tow": "اللاعب"
+          }
+        },
+        "tabs": {
+          "generalInfo": "البيانات العامة",
+          "videos": "فيديوهات",
+          "contactInfo": "بيانات الإتصال",
+          "profInfo": "بيانات المهنية"
+        },
+        "infoForm": {
+          "name": "الاسم",
+          "phone": "رقم الهاتف",
+          "placeOfBirth": "محل الميلاد",
+          "nationality": "الجنسية",
+          "oldPassword": "كلمة المرور القديمة",
+          "newPassword": "كلمة المرور الجديدة",
+          "editPassword": "تعديل كلمة المرور",
+          "edit": "تعديل"
+        },
+        "videos": {
+          "uploadVideo": "رفع فيديو",
+          "addVideo": "اضافة فيديو",
+          "videoTitle": "عنوان الفيديو"
+        },
+        "contactInfo": {
+          "postalCode": "الرمز البريدي",
+          "address": "العنوان",
+          "phone": "رقم الموبايل",
+          "other_phone": "رقم أخر"
+        },
+        "proftInfo": {
+          "section": "القسم",
+          "expireDate": "تاريخ الانتهاء",
+          "parentAddress": "عنوان الأب",
+          "parentPostalCode": "الرمز البريدي للأب",
+          "check": "أنا حاليا أقضي إجازة مرضية "
+        }
+      },
+      "register": {
+        "title": "الإنضمام لجمعية اللاعبين المحترفين",
+        "mainTitle": "خطوات تسهل التسجيل علي اللاعب",
+        "genralData": "بيانات عامة",
+        "contactData": "بيانات الإتصال",
+        "professionalData": "البيانات المهنية",
+        "form": {
+          "presonalPic": "الصورة الشخصية",
+          "email": "اسم المستخدم",
+          "name": "الاسم",
+          "placeOfBirth": "محل الميلاد",
+          "nationality": "الجنسية",
+          "password": "كلمة المرور",
+          "play": "مؤهل للعب في",
+          "postalCode": "الرمز البريدي",
+          "address": "العنوان",
+          "city": "المحافظة / المدينة",
+          "phone": "رقم الهاتف",
+          "mobile": "التليفون المتحرك",
+          "currentClub": "النادي الحالي",
+          "category": "القسم",
+          "agentName": "إسم الوكيل (إن وجد) ",
+          "fatherAddress": "عنوان الأب (إذا كان اللاعب قاصرا)",
+          "fatherPostalCode": "الرمز البريدي للأب",
+          "fatherCity": "مدينة الأب ",
+          "check": "أنا حاليا أقضي إجازة مرضية ",
+          "buttonNext": "التالي",
+          "buttonPrev": "السابق",
+          "button": "تسجيل"
+        },
+        "dontHaveAccount": "لديك عضوية",
+        "joinNow": "تسجيل الدخول",
+        "forgotPassword": "هل نسيت كلمة المرور ؟"
+      },
+      "Gallary": {
+        "images": "الصور",
+        "videos": "الفيديوهات"
+      },
+      "contact": {
+        "breadcrumbTitle": "إتصل بنا",
+        "breadcrumbContent": "يمكنك التواصل معنا الأن لتقديم شكوي أو مساعده",
+        "mainTitles": {
+          "one": {
+            "subOne": "تواصل ",
+            "subTow": " معنا"
+          },
+          "tow": "كيف يمكننا مساعدتك ؟",
+          "three": "يمكنك الإتصال بنا عبر الوسائل التالية أو ملئ النموذج"
+        },
+        "form": {
+          "type": "نوع الاتصال",
+          "name": "الاسم",
+          "phone": "رقم الموبايل",
+          "subject": "الموضوع"
+        },
+        "dontHaveAccount": "ليس لديك عضوية ؟",
+        "joinNow": "الإنضمام الأن",
+        "forgotPassword": "هل نسيت كلمة المرور ؟",
+        "send": "ارسال"
+      },
+      "sectionsTitles": {
+        "news": {
+          "redTitle": "مزيد من",
+          "title": "الأخبار",
+          "button": "كل الأخبار"
+        },
+        "members": {
+          "redTitle": "أعضاء",
+          "title": "الجمعية",
+          "button": "كل الأعضاء"
+        },
+        "entry": {
+          "redTitle": "المنضمين",
+          "title": "حديثا"
+        },
+        "media": {
+          "redTitle": "ميديا",
+          "title": "الجمعية",
+          "images": "الصور",
+          "videos": "الفيديوهات",
+          "button": "عرض الكل"
+        },
+        "followers": {
+          "redTitle": "الأكثر",
+          "title": "متابعة"
+        }
+      },
+      "siteHeader": {
+        "home": "الرئيسية",
+        "managers": "مجلس الإدارة",
+        "about": "عن الجمعية",
+        "news": "الأخبار",
+        "contact": "اتصل بنا",
+        "loginAndRegisterBTN": "إنضم إلينا / تسجيل الدخول",
+        "login": "تسجيل الدخول",
+        "register": "إنضم إلينا"
+      },
+      "siteFooter": {
+        "titeEPFA": "EPFA",
+        "lestsnews": "اخر الأخبار",
+        "guilds": "النقابات",
+        "info": {
+          "mainTitle": "الجمعية المصرية للاعبي كرة القدم المحترفين"
+        }
+      },
+      "Logout": {
+        "text": "تسجيل الخروج"
+      },
+      "home": {
+        "text": "الرئيسية"
+      },
+      "news": {
+        "breadcrumbTitle": "الأخبار",
+        "breadcrumbContent": "تابع أخبار الجمعية المصرية للاعبي كرة القدم المحترفين",
+        "mainTitle": {
+          "one": "كل",
+          "tow": "الأخبار"
+        },
+        "related": {
+          "mainTitle": {
+            "one": "مقالات",
+            "tow": "ذات صلة"
+          }
+        },
+        "singleNew": {
+          "breadcrumbTitle": "الأخبار",
+          "breadcrumbContent": "تابع أخبار الجمعية المصرية للاعبي كرة القدم المحترفين"
+        }
+      },
+      "media": {
+        "breadcrumbTitle": "ميديا الجمعية",
+        "breadcrumbContent": "يمكنك مشاهدة ميديا الجمعية المصرية للاعبين المحترفين",
+        "mainTitle": {
+          "one": "ميديا",
+          "tow": "الجمعية"
+        },
+        "imageTitle": "الصور",
+        "videoTitle": "الفيديوهات"
+      },
+      "members": {
+        "breadcrumbTitle": "الأعضاء",
+        "breadcrumbContent": "تعرف علي اللاعبين",
+        "title": "السيد",
+        "show_All": "عرض الكل",
+        "singleMember": {
+          "breadcrumbTitle": "الأعضاء",
+          "breadcrumbContent": "تعرف علي أعضاء الجمعية المصرية للاعبي كرة القدم المحترفين"
+        },
+        "managerHeader": {
+          "one": "مجلس",
+          "tow": "الادارة"
+        },
+        "membersHeader": {
+          "one": "أعضاء",
+          "tow": "مجلس الادارة"
+        }
+      },
+      "EditProfile": {
+        "text": "تعديل الملف الشخصي"
+      },
+      "Inbox": {
+        "text": "صندوق الوارد"
+      },
+      "Chat": {
+        "text": "المحادثات"
+      },
+      "Notifictaions": {
+        "text": "إشعارات التطبيق"
+      },
+      "Search": {
+        "text": "ابحث في الموقع"
+      },
+      "EmptyResults": {
+        "text": "عفوا لا يوجد نتائج بحث."
+      },
+      "copyRights": {
+        "text": "تصميم وتطوير"
+      }
+    }
+  ]
+}

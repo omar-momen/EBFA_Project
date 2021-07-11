@@ -1,0 +1,272 @@
+{
+  "data": [
+    {
+      "slider": {
+        "title": "read more"
+      },
+      "about": {
+        "title": "about organization",
+        "descreption": "Learn about the Egyptian Association of Professional Football Players",
+        "subtitle_one": {
+          "first": "who are",
+          "second": "we"
+        },
+        "subtitle_second": {
+          "first": "history of",
+          "second": "organization"
+        }
+      },
+      "login": {
+        "title": "login",
+        "mainTitle": "Welcome back, please login to your account.",
+        "form": {
+          "usernamePlaceholder": "Enter your username here",
+          "passwordPlaceholder": "Enter the password here",
+          "button": "Login"
+        },
+        "dontHaveAccount": "Don't have a membership?",
+        "joinNow": "join now",
+        "forgotPassword": "forget password?"
+      },
+      "forgetPassword": {
+        "form": {
+          "phone": "phone",
+          "code": "code",
+          "password": "password"
+        },
+        "title": "Forget Password?",
+        "mainTitle": "enter phone number",
+        "send": "send"
+      },
+      "profile": {
+        "breadcrumbTitle": "Profile",
+        "breadcrumbContent": "You can modify the previously entered data",
+        "title": "Profile",
+        "single_player": {
+          "name": "name",
+          "placeOfBirth": "placeOfBirth",
+          "age": "age",
+          "section": "section",
+          "currentClub": "currentClub",
+          "videos": {
+            "one": "player",
+            "tow": "videos"
+          }
+        },
+        "tabs": {
+          "generalInfo": "generalInfo",
+          "videos": "videos",
+          "contactInfo": "contactInfo",
+          "profInfo": "profInfo"
+        },
+        "infoForm": {
+          "name": "name",
+          "phone": "phone",
+          "placeOfBirth": "placeOfBirth",
+          "nationality": "nationality",
+          "oldPassword": "oldPassword",
+          "newPassword": "newPassword",
+          "editPassword": "editPassword",
+          "edit": "edit"
+        },
+        "videos": {
+          "uploadVideo": "uploadVideo",
+          "addVideo": "addVideo",
+          "videoTitle": "videoTitle"
+        },
+        "contactInfo": {
+          "postalCode": "postalCode",
+          "address": "address",
+          "phone": "phone",
+          "other_phone": "other_phone"
+        },
+        "proftInfo": {
+          "section": "section",
+          "expireDate": "expireDate",
+          "parentAddress": "parentAddress",
+          "parentPostalCode": "parentPostalCode",
+          "check": "I am currently on sick leave"
+        }
+      },
+      "register": {
+        "title": "Join the Professional Players Association",
+        "mainTitle": "Steps to make it easier for the player to register",
+        "genralData": "general data",
+        "contactData": "Contact Data",
+        "professionalData": "professional data",
+        "form": {
+          "presonalPic": "presonalPic",
+          "email": "username",
+          "name": "name",
+          "placeOfBirth": "placeOfBirth",
+          "nationality": "nationality",
+          "password": "password",
+          "play": "eligible to play in",
+          "postalCode": "postalCode",
+          "address": "address",
+          "city": "city",
+          "phone": "phone",
+          "mobile": "mobile",
+          "currentClub": "currentClub",
+          "category": "category",
+          "agentName": " agentName (if exist) ",
+          "fatherAddress": " fatherAddress (If the player is a minor)",
+          "fatherPostalCode": "fatherPostalCode",
+          "fatherCity": "fatherCity",
+          "check": "I am currently on sick leave",
+          "buttonNext": "Next",
+          "buttonPrev": "previous",
+          "button": "register"
+        },
+        "dontHaveAccount": "You have a membership",
+        "joinNow": "login",
+        "forgotPassword": "did you forget your password ?"
+      },
+      "contact": {
+        "breadcrumbTitle": "call us",
+        "breadcrumbContent": "You can contact us now to file a complaint or assistance.",
+        "mainTitles": {
+          "one": {
+            "subOne": "contact",
+            "subTow": "us"
+          },
+          "tow": "How can we help you ?",
+          "three": "You can contact us via the following means or fill out the form"
+        },
+        "form": {
+          "type": "type",
+          "name": "name",
+          "phone": "mobile",
+          "subject": "subject"
+        },
+        "dontHaveAccount": "Don't have a membership?",
+        "joinNow": "join now",
+        "forgotPassword": "did you forget your password ?",
+        "send": "send"
+      },
+      "sectionsTitles": {
+        "news": {
+          "redTitle": "more of",
+          "title": "news",
+          "button": "all news"
+        },
+        "members": {
+          "redTitle": "members",
+          "title": "organization",
+          "button": "all members"
+        },
+        "entry": {
+          "redTitle": "Entrants",
+          "title": "newly"
+        },
+        "media": {
+          "redTitle": "media",
+          "title": "Association",
+          "images": "Pictures",
+          "videos": "Videos",
+          "button": "view all"
+        },
+        "followers": {
+          "redTitle": "most",
+          "title": "following"
+        }
+      },
+      "siteHeader": {
+        "home": "Main",
+        "managers": "Board of Directors",
+        "about": "About the association",
+        "news": "news",
+        "contact": "call us",
+        "loginAndRegisterBTN": "Join us/Login",
+        "login": "sign in",
+        "register": "join us"
+      },
+      "siteFooter": {
+        "titeEPFA": "EPFA",
+        "lestsnews": "latest news",
+        "guilds": "guilds",
+        "info": {
+          "mainTitle": "Egyptian Association of Professional Football Players"
+        }
+      },
+      "pagesTitlesStatic": {},
+      "Logout": {
+        "text": "sign out"
+      },
+      "home": {
+        "text": "Main"
+      },
+      "news": {
+        "breadcrumbTitle": "news",
+        "breadcrumbContent": "Follow the news of the Egyptian Association of Professional Footballers",
+        "mainTitle": {
+          "one": "all",
+          "tow": "News"
+        },
+        "related": {
+          "mainTitle": {
+            "one": "Articles",
+            "tow": "related"
+          }
+        },
+        "singleNew": {
+          "breadcrumbTitle": "news",
+          "breadcrumbContent": "Follow the news of the Egyptian Association of Professional Footballers"
+        }
+      },
+      "media": {
+        "breadcrumbTitle": "Assembly Media",
+        "breadcrumbContent": "You can watch the media of the Egyptian Association of Professional Players",
+        "mainTitle": {
+          "one": "media",
+          "tow": "organization"
+        },
+        "imageTitle": "Pictures",
+        "videoTitle": "Videos"
+      },
+      "Gallary": {
+        "images": "images",
+        "videos": "videos"
+      },
+      "members": {
+        "breadcrumbTitle": "Members",
+        "breadcrumbContent": "Get to know the players",
+        "title": "master",
+        "show_All": "show All",
+        "singleMember": {
+          "breadcrumbTitle": "Members",
+          "breadcrumbContent": "Get to know the members of the Egyptian Association of Professional Footballers"
+        },
+        "managerHeader": {
+          "one": "Board of Directors",
+          "tow": "Administration"
+        },
+        "membersHeader": {
+          "one": "members",
+          "tow": "Board of Directors"
+        }
+      },
+      "EditProfile": {
+        "text": "Edit profile"
+      },
+      "Inbox": {
+        "text": "Inbox"
+      },
+      "Chat": {
+        "text": "conversations"
+      },
+      "Notifictaions": {
+        "text": "App notifications"
+      },
+      "Search": {
+        "text": "Search"
+      },
+      "EmptyResults": {
+        "text": "Sorry, there are no search results."
+      },
+      "copyRights": {
+        "text": "design and development"
+      }
+    }
+  ]
+}

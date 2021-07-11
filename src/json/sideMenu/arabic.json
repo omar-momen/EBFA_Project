@@ -1,0 +1,32 @@
+{
+    "sideMenu": [
+        {
+            "id": "1",
+            "text": "الرئيسية",
+            "icon": "feather-home",
+            "url": "/",
+            "sub": null
+        },
+        {
+            "id": "2",
+            "text": "الإسلايدر الرئيسي",
+            "icon": "feather-image",
+            "url": null,
+            "sub": [
+                {
+                    "id": "1",
+                    "text": "عرض الكل",
+                    "icon": "feather-circle",
+                    "url": "/all-sliders"
+                },
+                {
+                    "id": "2",
+                    "text": "اضافة جديد",
+                    "icon": "feather-circle",
+                    "url": "/add-slider"
+                }
+            ]
+        }
+        
+    ]
+}

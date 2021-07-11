@@ -1,0 +1,65 @@
+body {
+  direction: ltr;
+  text-align: left;
+}
+.single-slider .slider-content {
+  direction: ltr;
+}
+.single-dot {
+  direction: ltr;
+}
+.mainSlider .slick-slide .single-dot .count {
+  margin: 0;
+  margin-right: 15px;
+}
+.main-btn a,
+.main-btn button {
+  border-top-left-radius: 0;
+  border-top-right-radius: 25px;
+  border-bottom-right-radius: 25px;
+  border-bottom-left-radius: 25px;
+}
+.lang-search button.change-lang {
+  border-top-right-radius: 50%;
+  border-top-left-radius: 0%;
+  border-bottom-right-radius: 50%;
+  border-bottom-left-radius: 50%;
+}
+.login-btn a {
+  border-top-left-radius: 0;
+  border-top-right-radius: 25px;
+  border-bottom-right-radius: 25px;
+  border-bottom-left-radius: 25px;
+}
+.lang-search a {
+  border-top-left-radius: 0;
+  border-top-right-radius: 25px;
+  border-bottom-right-radius: 25px;
+  border-bottom-left-radius: 25px;
+}
+.slider-main-bg .slick-slide{
+    float: left !important;
+  }
+  .members-slider .single-member .text-member{
+    border-top-right-radius: 0;
+    border-top-left-radius: 35px;
+  }
+  .gallerySection .nav-tabs {
+    border-top-left-radius: 0;
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
+    border-bottom-left-radius: 30px;
+}
+.gallerySection .nav-tabs .nav-link {
+    border-top-left-radius: 0;
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
+    border-bottom-left-radius: 30px;
+}
+.contact-info li a svg{
+    margin-left: 0;
+    margin-right: 10px;
+}
+.auth-image img {
+  transform: rotateY(180deg);
+}
