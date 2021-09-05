@@ -3,7 +3,9 @@
     <div class="container" v-for="item in mainText" :key="item.id">
       {{ country_id }}
       <div class="logo-auth d-flex align-items-center">
-        <img src="../../../assets/images/logos/logo.png" alt="" />
+        <router-link to="/"
+          ><img src="../../../assets/images/logos/logo.png" alt=""
+        /></router-link>
         <div class="text-info-auth">
           <h3>{{ item.register.title }}</h3>
           <p>{{ item.register.mainTitle }}</p>
@@ -74,6 +76,10 @@
                 class="form-control"
                 v-model="data.date"
               />
+              <label for="username">
+                {{ item.register.form.dateOfBirth }}
+                <small>*</small>
+              </label>
             </div>
             <div class="form-group">
               <input
@@ -125,20 +131,6 @@
             <div class="form-group">
               <input
                 type="text"
-                id="play"
-                name="play"
-                class="form-control"
-                placeholder=" "
-                v-model="data.position"
-              />
-              <label for="play">
-                {{ item.register.form.play }}
-                <small>*</small>
-              </label>
-            </div>
-            <div class="form-group">
-              <input
-                type="text"
                 name="postalCode"
                 id="postalCode"
                 class="form-control"
@@ -166,10 +158,8 @@
             </div>
             <div v-if="countries" class="form-group custom-select">
               <select v-model="country_id" @change="getCities()">
-                <option disabled value="" v-if="lang == 'ar'">
-                  إختر الدولة
-                </option>
-                <option disabled value="" v-if="lang == 'en'">
+                <option disabled value v-if="lang == 'ar'">إختر الدولة</option>
+                <option disabled value v-if="lang == 'en'">
                   choose country
                 </option>
                 <option
@@ -199,8 +189,10 @@
               </select>
             </div>
             <div v-if="positions" class="form-group custom-select">
-              <select v-model="position_id">
-                <option disabled v-if="lang == 'ar'">إختر الموقع</option>
+              <select v-model="data.position_id">
+                <option disabled value="" v-if="lang == 'ar'">
+                  إختر الموقع
+                </option>
                 <option disabled value="" v-if="lang == 'en'">
                   choose position
                 </option>
@@ -281,6 +273,10 @@
                 class="form-control"
                 v-model="data.endDate"
               />
+              <label for="category">
+                {{ item.register.form.endDate }}
+                <small>*</small>
+              </label>
             </div>
             <div class="form-group">
               <input
@@ -414,7 +410,6 @@ export default {
       cities: null,
       disabledCities: true,
       positions: null,
-      position_id: null,
       clubs: null,
 
       user_id: "",
@@ -428,7 +423,7 @@ export default {
         nationality: "",
         password: "",
         // Step 2
-        position: "",
+        position_id: "",
         postalCode: "",
         address: "",
         phone: "",
@@ -551,7 +546,7 @@ export default {
       }
       // Steps
       if (this.step == 2) {
-        if (this.data.position == "") {
+        if (this.data.position_id == "") {
           setTimeout(() => {
             this.$iziToast.error({
               message: (this.error.static.text =
@@ -609,13 +604,12 @@ export default {
           data.append("step", 2);
           data.append("user_id", this.user_id);
 
-          data.append("position_id", this.data.position);
+          data.append("position_id", this.data.position_id);
           data.append("zip_code", this.data.postalCode);
           data.append("address", this.data.address);
           data.append("city_id", this.data.city_id);
           data.append("phone", this.data.phone);
           data.append("other_phone", this.data.mobile);
-          data.append("position_id", this.position_id);
 
           axios
             .post("complete_register/player", data, {
@@ -646,7 +640,7 @@ export default {
       // Steps
       if (this.step == 3) {
         this.waiting = true;
-        if (this.data.currentClub == "") {
+        if (this.data.club_id == "") {
           setTimeout(() => {
             this.$iziToast.error({
               message: (this.error.static.text = "برجاء إدخال النادي الحالي"),
@@ -662,12 +656,40 @@ export default {
               position: "bottomRight",
               rtl: true,
             });
+            this.waiting = false;
           });
         } else if (this.data.endDate == "") {
           setTimeout(() => {
             this.$iziToast.error({
               message: (this.error.static.text =
                 "برجاء إدخال  تاريخ انتهاء العقد"),
+              position: "bottomRight",
+              rtl: true,
+            });
+            this.waiting = false;
+          });
+        } else if (this.data.fatherPostalCode == "") {
+          setTimeout(() => {
+            this.$iziToast.error({
+              message: (this.error.static.text = "الرمز البريدي للأب مطلوب"),
+              position: "bottomRight",
+              rtl: true,
+            });
+            this.waiting = false;
+          });
+        } else if (this.data.fatherCity_id == "") {
+          setTimeout(() => {
+            this.$iziToast.error({
+              message: (this.error.static.text = "مدينة الأب مطلوبة"),
+              position: "bottomRight",
+              rtl: true,
+            });
+            this.waiting = false;
+          });
+        } else if (this.data.agentName == "") {
+          setTimeout(() => {
+            this.$iziToast.error({
+              message: (this.error.static.text = "اسم الوكيل مطلوب"),
               position: "bottomRight",
               rtl: true,
             });
@@ -684,6 +706,7 @@ export default {
           data.append("agent_name", this.data.agentName);
           data.append("parent_address", this.data.fatherAddress);
           data.append("parent_city_id", this.data.fatherCity_id);
+
           if (this.data.check == true) {
             data.append("is_ill", 1);
           } else {
@@ -699,23 +722,21 @@ export default {
                 Accept: "application/json",
               },
             })
-            .then((res) => {
-              if (res.data.status === "success") {
-                this.waiting = false;
-                this.step++;
-                this.$iziToast.success({
-                  message: (this.error.static.text = "تم تسجيل عضويتك بنجاح"),
-                  position: "bottomRight",
-                  rtl: true,
-                });
-                this.$router.push({ name: "login" });
-              }
+            .then(() => {
+              this.waiting = false;
+              this.step++;
+              this.$iziToast.success({
+                message: (this.error.static.text = "تم تسجيل عضويتك بنجاح"),
+                position: "bottomRight",
+                rtl: true,
+              });
+              this.$router.push({ name: "login" });
             })
             .catch((err) => {
+              console.log(err.message);
               this.waiting = false;
               this.$iziToast.error({
-                messagse: (this.error.static.text =
-                  err.response.data.errors.username[0]),
+                messagse: err.response.data.message,
                 position: "bottomRight",
                 rtl: true,
               });

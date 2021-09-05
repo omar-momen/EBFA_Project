@@ -27,11 +27,11 @@
             <ul class="d-flex justify-content-right">
               <li>
                 <i class="fa fa-calendar"></i>
-                {{ singleNew.created_at }}
+                {{ singleNew.created_at | moment("dddd, MMMM Do YYYY") }}
               </li>
               <li>
                 <i class="fa fa-clock"></i>
-                {{ singleNew.created_at }}
+                {{ singleNew.created_at | moment("h:mm a") }}
               </li>
             </ul>
           </div>
@@ -64,8 +64,7 @@ import related from "@/components/pages/news/related";
 import axios from "axios";
 import textAr from "../../../json/mainText/text-ar.json";
 import textEn from "../../../json/mainText/text-en.json";
-import imgFalse from "../../../assets/images/news/new3.png";
-
+import imgFalse from "../../../assets/images/news/new2.png";
 export default {
   name: "allNews",
   components: {

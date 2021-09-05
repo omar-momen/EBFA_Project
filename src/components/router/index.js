@@ -29,7 +29,7 @@ const routes = [
   // Home
   {
     path: "/",
-    name: "Home",
+    // name: "Home",
     component: HomePage,
     children: [
       {

@@ -50,7 +50,7 @@
         >
           <div class="important-links">
             <h3 class="title-footer">{{ item.siteFooter.titeEPFA }}</h3>
-            <ul>
+            <ul class="footer_links">
               <li>
                 <router-link tag="a" to="/">
                   {{ item.siteHeader.home }}
@@ -76,14 +76,13 @@
                   {{ item.siteHeader.contact }}
                 </router-link>
               </li>
-
               <li>
-                <router-link tag="a" to="/register">
+                <router-link tag="a" to="/login">
                   {{ item.siteHeader.login }}
                 </router-link>
               </li>
               <li>
-                <router-link tag="a" to="/login">
+                <router-link tag="a" to="/register">
                   {{ item.siteHeader.register }}
                 </router-link>
               </li>
@@ -91,7 +90,7 @@
           </div>
         </div>
         <div
-          class="col-lg-4 col-md-6"
+          class="col-lg-4 col-md-6 last_news"
           data-aos="fade-left"
           data-aos-delay="300"
           data-aos-duration="1100"
@@ -101,7 +100,7 @@
           <div class="news-footer" v-if="news">
             <h3 class="title-footer">{{ item.siteFooter.lestsnews }}</h3>
             <div class="single-new-small" v-for="New in news" :key="New.id">
-              <router-link to="/news/single" tag="a">
+              <router-link :to="'/news/' + New.id" tag="a">
                 <div class="row">
                   <div class="col-md-4">
                     <div class="img-new">
@@ -111,7 +110,12 @@
                   <div class="col-md-8">
                     <div class="text-new">
                       <h4>
-                        {{ New.description }}
+                        <read-more
+                          more-str=""
+                          :text="New.description"
+                          less-str=""
+                          :max-chars="50"
+                        ></read-more>
                       </h4>
                       <ul class="d-flex justify-content-right">
                         <li>
@@ -141,8 +145,8 @@
           <div class="important-links">
             <h3 class="title-footer">{{ item.siteFooter.guilds }}</h3>
             <ul>
-              <li v-for="guild in guilds" :key="guild.id">
-                <router-link tag="a" to="/">{{ guild.name }}</router-link>
+              <li class="guild" v-for="guild in guilds" :key="guild.id">
+                {{ guild.name }}
               </li>
             </ul>
           </div>
@@ -155,10 +159,30 @@
   </div>
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
+@media (max-width: 500px) {
+  .row > div {
+    margin: 1rem 0;
+  }
+  .last_news {
+    display: none;
+  }
+  ul.footer_links {
+    display: flex;
+    flex-wrap: wrap;
+
+    li {
+      width: 50%;
+    }
+  }
+}
+
 .siteFooter {
   position: relative;
   z-index: 3;
+}
+.guild {
+  color: #fff;
 }
 </style>
 

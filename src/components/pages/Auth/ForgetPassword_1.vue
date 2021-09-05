@@ -2,7 +2,9 @@
   <div class="auth-login-page">
     <div class="container" v-for="item in mainText" :key="item.id">
       <div class="logo-auth">
-        <img src="../../../assets/images/logos/logo.png" alt="" />
+        <router-link to="/"
+          ><img src="../../../assets/images/logos/logo.png" alt=""
+        /></router-link>
       </div>
       <div class="text-info-auth">
         <h3>{{ item.forgetPassword.title }}</h3>

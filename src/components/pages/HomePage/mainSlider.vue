@@ -2,7 +2,11 @@
   <div class="rootParent">
     <LoaderOne v-if="loading" />
     <div v-else class="mainSlider">
-      <vue-slick-carousel ref="slider1" v-bind="slider1Setting">
+      <vue-slick-carousel
+        ref="slider1"
+        v-bind="slider1Setting"
+        @beforeChange="onBeforeChangeSlider2"
+      >
         <div class="single-slider" v-for="slide in sliderData" :key="slide.id">
           <img :src="slide.media" />
           <div class="container">
@@ -10,9 +14,9 @@
               <div class="container">
                 <h3>{{ slide.title }}</h3>
                 <p>{{ slide.description }}</p>
-                <div class="main-btn" v-for="item in mainText" :key="item.id">
-                  <router-link to="" tag="a">{{
-                    item.slider.title
+                <div class="main-btn">
+                  <router-link :to="'/news/' + slide.id">{{
+                    mainText[0].slider.title
                   }}</router-link>
                 </div>
               </div>
@@ -40,11 +44,23 @@
               v-for="(slide, index) in sliderData"
               :key="slide.id"
             >
-              <div class="d-flex justify-content-between align-items-center">
+              <div
+                class="
+                  d-flex
+                  justify-content-between
+                  align-items-center
+                  dot_inside
+                "
+              >
                 <div class="count">0{{ index + 1 }}</div>
                 <div class="content-dot">
                   <p>
-                    {{ slide.description }}
+                    <read-more
+                      more-str=""
+                      :text="slide.description"
+                      less-str=""
+                      :max-chars="50"
+                    ></read-more>
                   </p>
                   <ul class="d-flex justify-content-right">
                     <li>
@@ -66,7 +82,11 @@
   </div>
 </template>
 
-<style lang="scss" scoped>
+<style lang="scss">
+.slick-current {
+  z-index: 10;
+}
+
 .single-slider {
   img {
     height: 100%;
@@ -81,11 +101,39 @@
     }
   }
 }
-.single-dot {
-  cursor: pointer;
-  transition: all 0.2s linear;
-  &:hover {
-    background: #ff000073;
+
+.slider-main-bg {
+  .slick-list {
+    display: flex;
+    .slick-track {
+      display: flex;
+      align-items: stretch;
+
+      .slick-slide {
+        height: 100%;
+
+        & > div {
+          height: 100%;
+          .single-dot {
+            height: 100%;
+
+            cursor: pointer;
+            transition: all 0.2s linear;
+            height: 100%;
+
+            .dot_inside {
+              height: 100%;
+              .content-dot {
+                height: 100%;
+              }
+            }
+            &:hover {
+              background: #ff000073;
+            }
+          }
+        }
+      }
+    }
   }
 }
 </style>

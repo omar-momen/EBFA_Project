@@ -29,16 +29,16 @@
                 </div>
                 <div class="text-new">
                   <h4>
-                    {{ New.description }}
+                    {{ New.title }}
                   </h4>
                   <ul class="d-flex justify-content-right">
                     <li>
                       <i class="fa fa-calendar"></i>
-                      {{ New.created_at }}
+                      {{ New.created_at | moment("dddd, MMMM Do YYYY") }}
                     </li>
                     <li>
                       <i class="fa fa-clock"></i>
-                      {{ New.created_at }}
+                      {{ New.created_at | moment("h:mm a") }}
                     </li>
                   </ul>
                 </div>
@@ -50,6 +50,30 @@
     </div>
   </div>
 </template>
+
+<style lang="scss" scoped>
+.single-new {
+  height: 25rem;
+  margin: 2rem 0;
+  a {
+    height: 100%;
+    display: block;
+
+    .text-new p {
+      font-size: 2rem;
+    }
+
+    .img-new {
+      height: 100%;
+      img {
+        height: 100%;
+        object-fit: cover;
+        border-radius: 2rem;
+      }
+    }
+  }
+}
+</style>
 
 <script>
 import axios from "axios";

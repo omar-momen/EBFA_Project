@@ -47,10 +47,20 @@ Vue.use(BootstrapVue);
 Vue.use(IconsPlugin);
 Vue.prototype.$iziToast = iziToast;
 
-Vue.use(require("vue-moment"));
+const moment = require("moment");
+if (localStorage.getItem("epfa_lang") == "ar") {
+  require("moment/locale/ar");
+}
+Vue.use(require("vue-moment"), {
+  moment,
+});
+// moment.locale("es");
+
+import ReadMore from "vue-read-more";
+Vue.use(ReadMore);
 
 // baseurl
-axios.defaults.baseURL = "https://epfa.areej.alalmiyalhura.com/api/";
+axios.defaults.baseURL = "http://epfaegypt.com/epfa/public/api/";
 
 // Glopal Components
 import LoaderOne from "./components/pages/loader/sliderLoader.vue";

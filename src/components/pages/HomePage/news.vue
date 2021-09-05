@@ -34,7 +34,7 @@
                   </div>
                   <div class="text-new">
                     <h4>
-                      {{ New.description }}
+                      {{ New.title }}
                     </h4>
                     <ul class="d-flex justify-content-right">
                       <li>
@@ -70,7 +70,7 @@
                     <div class="col-md-8">
                       <div class="text-new">
                         <h4>
-                          {{ New.description }}
+                          {{ New.title }}
                         </h4>
                         <ul class="d-flex justify-content-right">
                           <li>
@@ -176,6 +176,7 @@ export default {
       })
       .then((res) => {
         this.news = res.data.home_news;
+
         this.news_1 = this.news.slice(0, 2);
         this.news_2 = this.news.slice(2, 5);
       });

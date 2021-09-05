@@ -95,6 +95,8 @@
         "contactData": "بيانات الإتصال",
         "professionalData": "البيانات المهنية",
         "form": {
+          "dateOfBirth": "تاريخ ميلاد اللاعب",
+          "endDate": "تاريخ انتهاء العقد",
           "presonalPic": "الصورة الشخصية",
           "email": "اسم المستخدم",
           "name": "الاسم",

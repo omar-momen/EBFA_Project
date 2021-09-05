@@ -212,9 +212,10 @@
             <div class="form-group">
               <input
                 v-model="search.text"
-                type="search"
+                type="text"
                 name="search"
                 :placeholder="item.Search.text"
+                @keydown.enter="searchMethod"
               />
               <button
                 class="search_icon"
@@ -233,8 +234,11 @@
   </div>
 </template>
 
-
 <style lang="scss" scoped>
+.image {
+  width: fit-content !important;
+}
+
 .search_icon.english {
   left: unset;
   right: 0;
@@ -285,7 +289,6 @@
   left: -2rem;
 }
 </style>
-
 
 <script>
 import textAr from "../../../json/mainText/text-ar.json";

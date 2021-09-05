@@ -1277,7 +1277,7 @@ body .slick-prev:before {
 .members-slider .col-md-4 {
   transform: scale(0.82);
 }
-.members-slider .col-md-4:nth-child(2) {
+.members-slider .col-md-4:nth-child(3) {
   transform: scale(1.1);
 }
 .members-slider.small-members .col-md-4 {

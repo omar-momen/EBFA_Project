@@ -95,6 +95,8 @@
         "contactData": "Contact Data",
         "professionalData": "professional data",
         "form": {
+          "dateOfBirth": "dateOfBirth",
+          "endDate": "contract end date",
           "presonalPic": "presonalPic",
           "email": "username",
           "name": "name",

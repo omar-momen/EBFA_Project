@@ -2,7 +2,9 @@
   <div class="auth-login-page">
     <div class="container" v-for="item in mainText" :key="item.id">
       <div class="logo-auth">
-        <img src="../../../assets/images/logos/logo.png" alt="" />
+        <router-link to="/"
+          ><img src="../../../assets/images/logos/logo.png" alt=""
+        /></router-link>
       </div>
       <div class="text-info-auth">
         <h3>{{ item.forgetPassword.title }}</h3>
@@ -127,8 +129,7 @@ export default {
         this.waiting = true;
         const data = new FormData();
         data.append("phone", this.data.phone);
-        // data.append("code", this.data.code);
-        data.append("code", "1111"); // Temp
+        data.append("code", this.data.code);
         data.append("password", this.data.password);
 
         axios
@@ -144,7 +145,7 @@ export default {
             this.waiting = true;
             this.$iziToast.success({
               title: "success",
-              message: (this.error.static.text = "تم ارسال الكود بنجاح"),
+              message: (this.error.static.text = "تم تعديل كلمة المرور"),
               position: "bottomRight",
               rtl: true,
             });

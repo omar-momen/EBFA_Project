@@ -225,6 +225,7 @@ export default {
   methods: {
     contactBTN() {
       this.waiting = true;
+
       if (this.data.contactType == "") {
         setTimeout(() => {
           this.$iziToast.error({
@@ -247,6 +248,15 @@ export default {
         setTimeout(() => {
           this.$iziToast.error({
             message: (this.error.static.text = "برجاء إدخال رقم الموبايل"),
+            position: "bottomRight",
+            rtl: true,
+          });
+          this.waiting = false;
+        });
+      } else if (this.data.mobile.length < 8) {
+        setTimeout(() => {
+          this.$iziToast.error({
+            message: (this.error.static.text = "برجاء ادخال رقم هاتف صحيح"),
             position: "bottomRight",
             rtl: true,
           });

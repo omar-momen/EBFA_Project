@@ -85,7 +85,7 @@
                     v-for="item in singleYear"
                     :key="item.id"
                   >
-                    <img :src="item.files.image" alt="" />
+                    <img class="about_image" :src="item.files.image" alt="" />
                   </div>
                 </VueSlickCarousel>
               </b-tab>
@@ -107,6 +107,15 @@
     </div>
   </div>
 </template>
+
+<style scoped>
+.about_image {
+  border-radius: 1rem;
+  margin: 1rem;
+}
+</style>
+
+
 <script>
 import VueSlickCarousel from "vue-slick-carousel";
 import "vue-slick-carousel/dist/vue-slick-carousel.css";

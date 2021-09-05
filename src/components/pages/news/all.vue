@@ -38,7 +38,7 @@
                   </div>
                   <div class="text-new">
                     <h4>
-                      {{ New.description }}
+                      {{ New.title }}
                     </h4>
                     <ul class="d-flex justify-content-right">
                       <li>
@@ -108,7 +108,7 @@
 
 <script>
 import axios from "axios";
-import imgFalse from "../../../assets/images/news/new1.png";
+import imgFalse from "../../../assets/images/news/new2.png";
 import textAr from "../../../json/mainText/text-ar.json";
 import textEn from "../../../json/mainText/text-en.json";
 
