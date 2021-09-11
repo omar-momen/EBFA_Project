@@ -2,20 +2,20 @@
   <div class="copyRights">
     <div class="container" v-for="item in mainText" :key="item.id">
       <div class="row">
-        <div class="col-lg-7 col-md-6">
+        <div class="col-md-6">
           <div class="text-right-copy">
             <p>© FIFPro World Players' Union 2021 - Legals</p>
           </div>
         </div>
-        <div class="col-lg-5 col-md-6">
-          <div class="text-left-copy d-flex">
-            <p>{{ item.copyRights.text }} :</p>
+        <div class="col-md-6">
+          <div class="text-left-copy d-flex footerLogo">
             <a href="https://alalmiyalhura.com/" target="_blank">
               <img
                 src="../../../assets/images/logos/alalmiya.png"
                 alt="Alalmiy Alhura Logo"
               />
             </a>
+            <span class="footerSpan">Developed by alalmiya alhura</span>
           </div>
         </div>
       </div>
@@ -30,7 +30,6 @@
   }
 }
 </style>
-
 
 <script>
 import textAr from "../../../json/mainText/text-ar.json";

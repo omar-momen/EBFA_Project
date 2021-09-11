@@ -1749,12 +1749,36 @@ body .slick-prev:before {
   color: var(--aw-light);
   margin-top: 5px;
 }
+
+.footerLogo {
+  display: flex;
+  justify-content: center;
+}
+
+.footerSpan {
+  color: #fff;
+  text-align: start;
+  display: block;
+  margin: 0 0.7rem;
+  font-weight: bold;
+}
+
+@media (max-width: 992px) {
+  .footerSpan {
+    text-align: center;
+  }
+
+  .footerLogo {
+    flex-direction: column-reverse;
+  }
+}
+
 .text-left-copy p {
   margin: 0 15px;
   color: var(--aw-light);
 }
 .text-left-copy img {
-  height: auto;
+  height: 2rem;
 }
 .text-left-copy {
   align-items: center;
