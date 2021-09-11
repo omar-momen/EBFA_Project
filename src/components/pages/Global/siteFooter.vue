@@ -146,7 +146,7 @@
             <h3 class="title-footer">{{ item.siteFooter.guilds }}</h3>
             <ul>
               <li class="guild" v-for="guild in guilds" :key="guild.id">
-                {{ guild.name }}
+                <a :href="guild.link">{{ guild.name }}</a>
               </li>
             </ul>
           </div>
