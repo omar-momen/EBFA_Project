@@ -50,7 +50,7 @@
 </template>
 
 <style scoped>
-.container .row .col-md-4:first-child {
+/* .container .row .col-md-4:first-child {
   order: 1;
 }
 .container .row .col-md-4:nth-child(2) {
@@ -58,7 +58,7 @@
 }
 .container .row .col-md-4:last-child {
   order: 2;
-}
+} */
 
 .img-member {
   height: unset !important;

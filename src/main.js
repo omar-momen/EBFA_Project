@@ -60,7 +60,7 @@ import ReadMore from "vue-read-more";
 Vue.use(ReadMore);
 
 // baseurl
-axios.defaults.baseURL = "http://epfaegypt.com/epfa/public/api/";
+axios.defaults.baseURL = "https://epfaegypt.com/epfa/public/api/";
 
 // Glopal Components
 import LoaderOne from "./components/pages/loader/sliderLoader.vue";

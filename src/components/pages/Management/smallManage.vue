@@ -24,9 +24,13 @@
         data-aos-once="true"
       >
         <div class="container">
-          <div class="row">
+          <div class="row" v-if="members">
             <!-- single -->
-            <div class="col-md-3" v-for="member in members" :key="member.id">
+            <div
+              class="col-md-3"
+              v-for="member in members"
+              :key="member.ordering"
+            >
               <router-link :to="'member/' + member.id">
                 <div class="single-member single-member-page">
                   <div class="img-member">
@@ -56,15 +60,24 @@
 <script>
 import textAr from "../../../json/mainText/text-ar.json";
 import textEn from "../../../json/mainText/text-en.json";
+
 export default {
   name: "management",
   props: ["members"],
+
   data() {
     return {
       lang: localStorage.getItem("epfa_lang"),
       mainText: [],
     };
   },
+
+  computed: {
+    theMembers() {
+      return this.members;
+    },
+  },
+
   mounted() {
     if (this.lang == "ar") {
       this.mainText = textAr.data;

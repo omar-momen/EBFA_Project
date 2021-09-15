@@ -57,6 +57,9 @@ export default {
       .then((res) => {
         this.members = res.data.members;
         this.management = res.data.management;
+
+        console.log(this.members);
+        console.log(this.management);
       });
   },
 };
