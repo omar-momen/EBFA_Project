@@ -29,7 +29,7 @@
                 </h4>
               </div>
               <div class="text-about" v-if="aboutText">
-                <p>{{ aboutText }}</p>
+                <p v-html="aboutText"></p>
               </div>
             </div>
             <div
@@ -114,7 +114,6 @@
   margin: 1rem;
 }
 </style>
-
 
 <script>
 import VueSlickCarousel from "vue-slick-carousel";

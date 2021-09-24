@@ -39,7 +39,7 @@
             <img @error="replaceByDefault" :src="singleNew.media" alt="" />
           </div>
           <div class="text-new">
-            <p>{{ singleNew.description }}</p>
+            <p v-html="singleNew.description"></p>
           </div>
         </div>
       </div>
