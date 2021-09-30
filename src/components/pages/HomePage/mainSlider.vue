@@ -13,7 +13,7 @@
             <div class="slider-content">
               <div class="container">
                 <h3>{{ slide.title }}</h3>
-                <p>{{ slide.description }}</p>
+                <p v-html="slide.description"></p>
                 <div class="main-btn">
                   <router-link :to="'/news/' + slide.id">{{
                     mainText[0].slider.title

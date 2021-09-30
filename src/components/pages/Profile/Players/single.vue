@@ -2,7 +2,7 @@
   <div class="single-profile" v-if="player">
     <div class="breadcrumb">
       <div class="container">
-        <h1>{{ player.agent_name }}</h1>
+        <h1>{{ player.username }}</h1>
       </div>
     </div>
     <!-- End  Breadcrumb -->
@@ -32,7 +32,7 @@
             <ul>
               <li>
                 <span>{{ item.profile.single_player.name }} </span>
-                <small>:</small>{{ player.agent_name }}
+                <small>:</small>{{ player.username }}
               </li>
               <li>
                 <span>{{ item.profile.single_player.placeOfBirth }}</span>

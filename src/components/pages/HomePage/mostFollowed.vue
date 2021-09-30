@@ -36,7 +36,7 @@
                   <img :src="player.avatar" alt="" />
                 </div>
                 <div class="text-follow">
-                  <h5>{{ player.agent_name }}</h5>
+                  <h5>{{ player.username }}</h5>
                   <h6>{{ player.club }}</h6>
                 </div>
               </router-link>
@@ -170,6 +170,7 @@ export default {
       })
       .then((res) => {
         this.players = res.data.MostFollowedPlayers;
+        console.log(this.players);
       });
   },
 };

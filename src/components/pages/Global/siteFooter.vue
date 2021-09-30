@@ -151,6 +151,23 @@
             </ul>
           </div>
         </div>
+
+        <div class="social">
+          <ul class="links">
+            <li class="link">
+              <a href=""><i class="fab fa-facebook-f"></i></a>
+            </li>
+            <li class="link">
+              <a href=""><i class="fab fa-twitter"></i></a>
+            </li>
+            <li class="link">
+              <a href=""><i class="fab fa-instagram"></i></a>
+            </li>
+            <li class="link">
+              <a href=""><i class="fab fa-youtube"></i></a>
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
 
@@ -183,6 +200,52 @@
 }
 .guild {
   color: #fff;
+}
+
+.social {
+  margin: 2rem 0;
+  .links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .link {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      margin: 0 1rem;
+      transition: all 0.3s linear;
+
+      &:hover {
+        transform: rotate(360deg) scale(1.2);
+      }
+
+      &:first-child {
+        background: #1877f2;
+      }
+      &:nth-child(2) {
+        background: #1da1f2;
+      }
+      &:nth-child(3) {
+        background: #e4405f;
+      }
+      &:last-child {
+        background: #cd201f;
+      }
+
+      a {
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #fff !important;
+
+        i {
+          color: #fff;
+        }
+      }
+    }
+  }
 }
 </style>
 

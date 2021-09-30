@@ -59,6 +59,9 @@ Vue.use(require("vue-moment"), {
 import ReadMore from "vue-read-more";
 Vue.use(ReadMore);
 
+import VueMeta from 'vue-meta'
+Vue.use(VueMeta)
+
 // baseurl
 axios.defaults.baseURL = "https://epfaegypt.com/epfa/public/api/";
 
