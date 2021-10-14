@@ -181,7 +181,8 @@
         "contact": "call us",
         "loginAndRegisterBTN": "Join us/Login",
         "login": "sign in",
-        "register": "join us"
+        "register": "join us",
+        "vote": "Vote"
       },
       "siteFooter": {
         "titeEPFA": "EPFA",

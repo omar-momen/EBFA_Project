@@ -37,6 +37,11 @@
                     {{ item.siteHeader.contact }}
                   </router-link>
                 </li>
+                <li class="nav-item">
+                  <router-link class="nav-link" tag="a" to="/vote">
+                    {{ item.siteHeader.vote }}
+                  </router-link>
+                </li>
               </b-navbar-nav>
               <div class="d-flex">
                 <div class="lang-search d-flex">

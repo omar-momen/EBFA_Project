@@ -54,13 +54,8 @@
               >
                 <div class="count">0{{ index + 1 }}</div>
                 <div class="content-dot">
-                  <p>
-                    <read-more
-                      more-str=""
-                      :text="slide.description"
-                      less-str=""
-                      :max-chars="50"
-                    ></read-more>
+                  <p class="sliderText">
+                    {{ slide.title }}
                   </p>
                   <ul class="d-flex justify-content-right">
                     <li>
@@ -83,6 +78,28 @@
 </template>
 
 <style lang="scss">
+// .content-dot {
+//   width: 100%;
+//   max-width: 100%;
+//   overflow: hidden;
+//   text-overflow: ellipsis;
+//   position: relative;
+//   resize: none;
+//   white-space: nowrap;
+//   direction: rtl;
+// }
+
+// .sliderText {
+//   width: 100%;
+//   max-width: 100%;
+//   overflow: hidden;
+//   text-overflow: ellipsis;
+//   position: relative;
+//   resize: none;
+//   white-space: nowrap;
+//   direction: rtl;
+// }
+
 .slick-current {
   z-index: 10;
 }
@@ -210,6 +227,7 @@ export default {
       })
       .then((res) => {
         this.sliderData = res.data.slider;
+        console.log(this.sliderData);
         this.loading = false;
       })
       .catch(() => {

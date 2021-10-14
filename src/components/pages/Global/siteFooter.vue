@@ -109,14 +109,15 @@
                   </div>
                   <div class="col-md-8">
                     <div class="text-new">
-                      <h4>
-                        <read-more
+                      <p class="footer_text">
+                        {{ New.title }}
+                        <!-- <read-more
                           more-str=""
                           :text="New.description"
                           less-str=""
                           :max-chars="50"
-                        ></read-more>
-                      </h4>
+                        ></read-more> -->
+                      </p>
                       <ul class="d-flex justify-content-right">
                         <li>
                           <i class="fa fa-calendar"></i>
@@ -177,6 +178,9 @@
 </template>
 
 <style lang="scss" scoped>
+.footer_text {
+  color: #fff;
+}
 @media (max-width: 500px) {
   .row > div {
     margin: 1rem 0;
@@ -331,6 +335,8 @@ export default {
       })
       .then((res) => {
         this.news = res.data.homeFooterNews;
+        console.log("aldsmvlkdsjvldsil");
+        console.log(this.news[0].description);
       });
   },
 };

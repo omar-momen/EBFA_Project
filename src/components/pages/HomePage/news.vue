@@ -24,7 +24,7 @@
         data-aos-easing="ease-in-out"
         data-aos-once="true"
       >
-        <div class="col-md-8">
+        <div class="col-lg-8">
           <div class="row">
             <div class="col-md-6" v-for="New in news_1" :key="New.id">
               <div class="single-new">
@@ -52,7 +52,7 @@
             </div>
           </div>
         </div>
-        <div class="col-md-4">
+        <div class="col-lg-4">
           <div class="row">
             <div class="col-md-12" v-for="New in news_2" :key="New.id">
               <div class="single-new-small">
@@ -101,6 +101,12 @@
 </template>
 
 <style lang="scss" scoped>
+.single-new-small {
+  height: unset;
+  img {
+    object-fit: cover;
+  }
+}
 .single-new {
   height: 300px;
   a {
