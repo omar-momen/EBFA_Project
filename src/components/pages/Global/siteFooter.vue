@@ -335,8 +335,8 @@ export default {
       })
       .then((res) => {
         this.news = res.data.homeFooterNews;
-        console.log("aldsmvlkdsjvldsil");
-        console.log(this.news[0].description);
+        // console.log("aldsmvlkdsjvldsil");
+        // console.log(this.news[0].description);
       });
   },
 };
