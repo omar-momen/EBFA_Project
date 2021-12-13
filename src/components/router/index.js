@@ -21,6 +21,7 @@ import Register from "../pages/Auth/register.vue";
 import ForgetPassword_1 from "../pages/Auth/ForgetPassword_1.vue";
 import ForgetPassword_2 from "../pages/Auth/ForgetPassword_2.vue";
 import Vote from "../pages/Vote.vue";
+import NewVote from "../pages/NewVote.vue";
 
 import NotFound from "../pages/NotFound.vue";
 
@@ -104,6 +105,11 @@ const routes = [
         path: "/vote",
         name: "Vote",
         component: Vote,
+      },
+      {
+        path: "/newVote",
+        name: "NewVote",
+        component: NewVote,
       },
     ],
   },

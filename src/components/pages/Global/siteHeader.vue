@@ -38,7 +38,7 @@
                   </router-link>
                 </li>
                 <li class="nav-item">
-                  <router-link class="nav-link" tag="a" to="/vote">
+                  <router-link class="nav-link" tag="a" to="/newVote">
                     {{ item.siteHeader.vote }}
                   </router-link>
                 </li>

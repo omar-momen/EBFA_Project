@@ -48,6 +48,8 @@
           "age": "age",
           "section": "section",
           "currentClub": "currentClub",
+          "position": "position",
+          "nationality": "nationality",
           "videos": {
             "one": "player",
             "tow": "videos"
