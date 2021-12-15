@@ -24,7 +24,7 @@
           <div class="title-sections">
             <h4>
               لاعبين
-              <span>ديسيمبر</span>
+              <span>{{ month }}</span>
             </h4>
           </div>
           <div class="row">
@@ -33,33 +33,36 @@
                 class="player"
                 :style="{ backgroundImage: `url(${playerBackground})` }"
               >
-                <img :src="player.image" />
+                <img :src="player.avatar" />
                 <div class="info">
-                  <h3>{{ player.username }}</h3>
+                  <h3>{{ player.name }}</h3>
                   <ul>
                     <li>
                       <span>{{ item.profile.single_player.currentClub }}</span>
-                      <small>:</small>{{ player.club }}
+                      <small>:</small>{{ player.club_data.name }}
                     </li>
                     <li>
                       <span>{{ item.profile.single_player.position }}</span>
-                      <small>:</small>{{ player.position }}
+                      <small>:</small>{{ player.position_data.name }}
                     </li>
                     <li>
                       <span>{{ item.profile.single_player.nationality }}</span>
-                      <small>:</small>{{ player.nationality }}
+                      <small>:</small>{{ player.nationality_data.name }}
                     </li>
                   </ul>
-                </div>
 
-                <progress-bar
-                  v-if="showProgress"
-                  :barValue="player.rate"
-                ></progress-bar>
-                <div class="choose" v-else>
-                  <button @click="choosePlayer" class="login-btn">
-                    {{ lang == "ar" ? "اختيار" : "choose" }}
-                  </button>
+                  <progress-bar
+                    v-if="has_voted"
+                    :barValue="player.voting_rate"
+                  ></progress-bar>
+                  <div class="choose" v-else>
+                    <button
+                      @click="choosePlayer(player.voting_player_id)"
+                      class="login-btn"
+                    >
+                      {{ lang == "ar" ? "اختيار" : "choose" }}
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
@@ -87,6 +90,7 @@
               <div class="input_wrapper select">
                 <img class="icon_select" src="@/assets/images/select.png" />
                 <b-form-select
+                  @change="filterData"
                   class="form-control"
                   v-model="filter.year"
                   :options="years"
@@ -95,6 +99,7 @@
               <div class="input_wrapper select">
                 <img class="icon_select" src="@/assets/images/select.png" />
                 <b-form-select
+                  @change="filterData"
                   class="form-control"
                   v-model="filter.month"
                   :options="months"
@@ -109,6 +114,7 @@
               data-aos-duration="1000"
               data-aos-easing="ease-in-out"
               data-aos-once="true"
+              v-if="players_2"
             >
               <div
                 class="col-lg-4 col-md-6 col-12"
@@ -117,34 +123,42 @@
               >
                 <div
                   :style="{ backgroundImage: `url(${playerBackground})` }"
-                  class="player"
+                  class="player down"
                 >
-                  <img :src="player.image" />
+                  <img :src="player.avatar" />
                   <div class="info">
-                    <h3>{{ player.username }}</h3>
+                    <h3>{{ player.name }}</h3>
                     <ul>
                       <li>
                         <span>{{
                           item.profile.single_player.currentClub
                         }}</span>
-                        <small>:</small>{{ player.club }}
+                        <small>:</small>{{ player.club_data.name }}
                       </li>
                       <li>
                         <span>{{ item.profile.single_player.position }}</span>
-                        <small>:</small>{{ player.position }}
+                        <small>:</small>{{ player.position_data.name }}
                       </li>
                       <li>
                         <span>{{
                           item.profile.single_player.nationality
                         }}</span>
-                        <small>:</small>{{ player.nationality }}
+                        <small>:</small>{{ player.nationality_data.name }}
                       </li>
                     </ul>
-                    <progress-bar :barValue="player.rate"></progress-bar>
+                    <progress-bar
+                      :barValue="player.voting_rate || 0"
+                    ></progress-bar>
                   </div>
                 </div>
               </div>
             </div>
+            <img
+              class="empty"
+              v-else
+              src="@/assets/images/empty_data.svg"
+              alt=""
+            />
           </div>
         </div>
       </div>
@@ -218,156 +232,78 @@ export default {
       relateNews: [],
       lang: localStorage.getItem("epfa_lang"),
       mainText: null,
-      showProgress: false,
 
-      players_1: [
-        {
-          id: 1,
-          username: "علي معلول",
-          club: "الأهلي",
-          position: "ظهير أيسر",
-          nationality: "التونسية",
-          image: require("@/assets/images/entrants/ent1.png"),
-          rate: 10,
-        },
-        {
-          id: 2,
-          username: "علي معلول",
-          club: "الأهلي",
-          position: "ظهير أيسر",
-          nationality: "التونسية",
-          image: require("@/assets/images/entrants/ent2.png"),
-          rate: 20,
-        },
-        {
-          id: 3,
-          username: "علي معلول",
-          club: "الأهلي",
-          position: "ظهير أيسر",
-          nationality: "التونسية",
-          image: require("@/assets/images/entrants/ent3.png"),
-          rate: 30,
-        },
-        {
-          id: 4,
-          username: "علي معلول",
-          club: "الأهلي",
-          position: "ظهير أيسر",
-          nationality: "التونسية",
-          image: require("@/assets/images/entrants/ent4.png"),
-          rate: 40,
-        },
-        {
-          id: 5,
-          username: "علي معلول",
-          club: "الأهلي",
-          position: "ظهير أيسر",
-          nationality: "التونسية",
-          image: require("@/assets/images/entrants/ent3.png"),
-          rate: 50,
-        },
-        {
-          id: 6,
-          username: "علي معلول",
-          club: "الأهلي",
-          position: "ظهير أيسر",
-          nationality: "التونسية",
-          image: require("@/assets/images/entrants/ent4.png"),
-          rate: 80,
-        },
-      ],
-      players_2: [
-        {
-          id: 1,
-          username: "علي معلول",
-          club: "الأهلي",
-          position: "ظهير أيسر",
-          nationality: "التونسية",
-          image: require("@/assets/images/entrants/ent1.png"),
-          rate: 10,
-        },
-        {
-          id: 2,
-          username: "علي معلول",
-          club: "الأهلي",
-          position: "ظهير أيسر",
-          nationality: "التونسية",
-          image: require("@/assets/images/entrants/ent2.png"),
-          rate: 20,
-        },
-        {
-          id: 3,
-          username: "علي معلول",
-          club: "الأهلي",
-          position: "ظهير أيسر",
-          nationality: "التونسية",
-          image: require("@/assets/images/entrants/ent3.png"),
-          rate: 30,
-        },
-        {
-          id: 4,
-          username: "علي معلول",
-          club: "الأهلي",
-          position: "ظهير أيسر",
-          nationality: "التونسية",
-          image: require("@/assets/images/entrants/ent4.png"),
-          rate: 40,
-        },
-        {
-          id: 5,
-          username: "علي معلول",
-          club: "الأهلي",
-          position: "ظهير أيسر",
-          nationality: "التونسية",
-          image: require("@/assets/images/entrants/ent3.png"),
-          rate: 50,
-        },
-        {
-          id: 6,
-          username: "علي معلول",
-          club: "الأهلي",
-          position: "ظهير أيسر",
-          nationality: "التونسية",
-          image: require("@/assets/images/entrants/ent4.png"),
-          rate: 80,
-        },
-      ],
+      players_1: [],
+      players_2: [],
+
+      best_player_map_id: null,
+      random_id: null,
+
+      month: "",
 
       playerBackground: require("@/assets/images/entrants/player_bg.png"),
 
       filter: {
-        year: null,
+        year: new Date().getFullYear(),
         month: null,
       },
 
-      years: [
-        {
-          value: null,
-          text: this.lang == "ar" ? "اختر سنة" : "select year",
-          disabled: true,
-        },
-      ],
-      months: [
-        "Jan",
-        "Feb",
-        "Mar",
-        "Apr",
-        "May",
-        "Jun",
-        "Jul",
-        "Aug",
-        "Sep",
-        "Oct",
-        "Nov",
-        "Dec",
-      ],
+      months: [],
+      years: [],
+
+      has_voted: null,
     };
   },
 
+  computed: {
+    testMonths() {
+      return [
+        "january",
+        "february",
+        "march",
+        "april",
+        "may",
+        "june",
+        "july",
+        "august",
+        "september",
+        "october",
+        "november",
+        "december",
+      ];
+    },
+  },
+
   methods: {
-    getData() {
+    replaceByDefault(e) {
+      e.target.src = imgFalse;
+    },
+
+    choosePlayer(id) {
+      let Data = new FormData();
+      Data.append("voter_mac_address", this.random_id);
+      Data.append("best_player_map_id", this.best_player_map_id);
+      Data.append("voting_player_id", id);
+
       axios
-        .get("related/news", {
+        .post(`best_player_voting`, Data, {
+          headers: {
+            "Accept-language": this.lang,
+            "cache-control": "no-cache",
+            "Content-type": "multipart/form-data",
+            Accept: "application/json",
+          },
+        })
+        .then(() => {
+          this.GetPlayers();
+          this.has_voted = true;
+        });
+    },
+
+    GetPlayers() {
+      this.loading = true;
+      axios
+        .get(`voting_month_map?voter_mac_address=${this.random_id}`, {
           headers: {
             "Accept-language": this.lang,
             "cache-control": "no-cache",
@@ -376,46 +312,119 @@ export default {
           },
         })
         .then((res) => {
-          this.relateNews = res.data.data;
+          this.loading = false;
+          this.players_1 = res.data.data.voting_map_items;
+          this.best_player_map_id = res.data.data.id;
+          this.month = res.data.data.month;
+          this.relateNews = res.data.data.news;
+
+          this.has_voted = res.data.has_voted;
         });
     },
 
-    replaceByDefault(e) {
-      e.target.src = imgFalse;
+    filterData() {
+      this.loading = true;
+
+      let params = {
+        month: this.filter.month,
+        year: this.filter.year,
+      };
+
+      axios
+        .get(`voting_month_map_filter`, {
+          headers: {
+            "Accept-language": this.lang,
+            "cache-control": "no-cache",
+            "Content-type": "multipart/form-data",
+            Accept: "application/json",
+          },
+          params: params,
+        })
+        .then((res) => {
+          this.loading = false;
+          console.log(res);
+          this.players_2 = res.data.data.voting_map_items;
+        });
     },
 
-    choosePlayer() {
-      this.showProgress = true;
+    GetMonths() {
+      this.loading = true;
+      axios
+        .get(`voting_months`, {
+          headers: {
+            "Accept-language": this.lang,
+            "cache-control": "no-cache",
+            "Content-type": "multipart/form-data",
+            Accept: "application/json",
+          },
+        })
+        .then((res) => {
+          this.loading = false;
+          this.months = res.data.monthes.map((item) => {
+            return {
+              value: item.name,
+              text: item.name,
+            };
+          });
+          this.months.unshift({
+            value: null,
+            text: this.lang == "ar" ? "اختر شهر" : "select month",
+            disabled: true,
+          });
+        });
+    },
+
+    GetYears() {
+      var max = new Date().getFullYear();
+      var min = max - 9;
+      var years = [];
+
+      for (var i = max; i >= min; i--) {
+        years.push(i);
+      }
+
+      this.years = years;
+
+      this.years.unshift({
+        value: null,
+        text: this.lang == "ar" ? "اختر سنة" : "select year",
+        disabled: true,
+      });
     },
   },
 
   mounted() {
-    this.getData();
-
-    // Months
-
-    this.months = this.months.map((item) => {
-      return {
-        value: item,
-        text: item,
-      };
-    });
-    this.months.unshift({
-      value: null,
-      text: this.lang == "ar" ? "اختر شهر" : "select month",
-      disabled: true,
-    });
-
     if (this.lang == "ar") {
       this.mainText = textAr.data;
     } else {
       this.mainText = textEn.data;
     }
   },
+
+  created() {
+    if (localStorage.getItem("Player_Random_Key")) {
+      this.random_id = localStorage.getItem("Player_Random_Key");
+    } else {
+      this.random_id = "_" + Math.random().toString(36).substr(2, 9);
+      localStorage.setItem("Player_Random_Key", this.random_id);
+    }
+
+    this.GetMonths();
+    this.GetYears();
+    this.filter.month = this.testMonths[new Date().getMonth()];
+    this.filterData();
+    this.GetPlayers();
+  },
 };
 </script>
 
 <style lang="scss" scoped>
+img.empty {
+  height: 500px;
+  margin: 20px auto;
+  display: block;
+}
+
 .single-new {
   height: 300px;
   a {
@@ -479,7 +488,7 @@ export default {
 }
 
 ._container {
-  width: 70%;
+  width: 80%;
   margin-inline: auto;
 
   @media (max-width: 1300px) {
@@ -492,13 +501,21 @@ export default {
 }
 
 .player {
+  &.down {
+    min-height: 200px;
+  }
+
   display: flex;
   margin: 15px 0;
   align-items: flex-end;
-  padding: 10px 10px 0 10px;
+  padding: 15px 15px 0;
   border-radius: 15px;
   background-repeat: no-repeat;
   background-size: cover;
+
+  span {
+    margin-inline-end: 9px;
+  }
 
   @media (max-width: 700px) {
     flex-direction: column;
@@ -516,13 +533,14 @@ export default {
   }
 
   .info {
+    margin-bottom: 7px;
     h3 {
       color: #fff;
       font-size: 20px;
     }
 
     ul {
-      color: #454951;
+      color: #9da0a8;
     }
   }
 
@@ -562,10 +580,6 @@ export default {
   padding: 20px;
 
   .player {
-    img {
-      height: 150px;
-      width: 146px;
-    }
   }
 }
 
@@ -580,7 +594,7 @@ export default {
 }
 
 .progressBar {
-  width: 100%;
+  width: 90%;
   margin: 0 10px;
 }
 </style>

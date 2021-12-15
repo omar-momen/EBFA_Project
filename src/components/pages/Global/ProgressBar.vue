@@ -58,6 +58,7 @@ export default {
     inset: 0;
     transition: all 0.2s linear;
     border-radius: 0 10px 10px 0;
+    border-radius: 10px;
   }
 }
 .rate {
