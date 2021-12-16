@@ -8,7 +8,9 @@
               <img src="../../../assets/images/logos/logo.png" alt="" />
             </router-link>
 
-            <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
+            <b-navbar-toggle target="nav-collapse">
+              <span style="color: #fff"><i class="fas fa-align-left"></i></span>
+            </b-navbar-toggle>
 
             <b-collapse id="nav-collapse" is-nav>
               <b-navbar-nav>

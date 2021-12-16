@@ -27,7 +27,9 @@
               <span>{{ month }}</span>
             </h4>
           </div>
-          <div class="row">
+
+          <Card v-if="loading" />
+          <div v-else class="row">
             <div class="col-lg-6" v-for="player in players_1" :key="player.id">
               <div
                 class="player"
@@ -116,7 +118,9 @@
               data-aos-once="true"
               v-if="players_2"
             >
+              <Card v-if="loading" />
               <div
+                v-else
                 class="col-lg-4 col-md-6 col-12"
                 v-for="player in players_2"
                 :key="player.id"
@@ -153,12 +157,10 @@
                 </div>
               </div>
             </div>
-            <img
-              class="empty"
-              v-else
-              src="@/assets/images/empty_data.svg"
-              alt=""
-            />
+
+            <h2 class="empty" v-else>
+              {{ lang == "ar" ? "لا توجد بيانات" : "No Data" }}
+            </h2>
           </div>
         </div>
       </div>
@@ -229,6 +231,8 @@ export default {
 
   data() {
     return {
+      loading: false,
+
       relateNews: [],
       lang: localStorage.getItem("epfa_lang"),
       mainText: null,
@@ -324,7 +328,6 @@ export default {
 
     filterData() {
       this.loading = true;
-
       let params = {
         month: this.filter.month,
         year: this.filter.year,
@@ -342,7 +345,6 @@ export default {
         })
         .then((res) => {
           this.loading = false;
-          console.log(res);
           this.players_2 = res.data.data.voting_map_items;
         });
     },
@@ -360,10 +362,11 @@ export default {
         })
         .then((res) => {
           this.loading = false;
+          console.log(res.data);
           this.months = res.data.monthes.map((item) => {
             return {
               value: item.name,
-              text: item.name,
+              text: item.title,
             };
           });
           this.months.unshift({
@@ -419,10 +422,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-img.empty {
-  height: 500px;
-  margin: 20px auto;
-  display: block;
+.empty {
+  color: #c5c5c5;
+  text-align: center;
+  margin: 20px 0;
 }
 
 .single-new {
@@ -597,4 +600,6 @@ img.empty {
   width: 90%;
   margin: 0 10px;
 }
+
+// =======================
 </style>

@@ -71,10 +71,12 @@ axios.defaults.baseURL = "https://epfaegypt.com/epfa/public/api/";
 import LoaderOne from "./components/pages/loader/sliderLoader.vue";
 import LoaderTow from "./components/pages/loader/siteLoader.vue";
 import LoaderThree from "./components/pages/loader/headerLoaer.vue";
+import Card from "./components/pages/loader/Card.vue";
 
 Vue.component("LoaderOne", LoaderOne);
 Vue.component("LoaderTow", LoaderTow);
 Vue.component("LoaderThree", LoaderThree);
+Vue.component("Card", Card);
 
 new Vue({
   router,
