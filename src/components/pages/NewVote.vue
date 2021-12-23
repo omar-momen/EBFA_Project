@@ -22,13 +22,17 @@
       >
         <div class="monthPlayers">
           <div class="title-sections">
-            <h4>
+            <h4 v-if="lang == 'ar'">
               لاعبين
               <span>{{ month }}</span>
             </h4>
+            <h4 v-else>
+              <span>{{ month }}</span>
+              players
+            </h4>
           </div>
 
-          <Card v-if="loading" />
+          <Card v-if="loading_1" />
           <div v-else class="row">
             <div class="col-lg-6" v-for="player in players_1" :key="player.id">
               <div
@@ -66,6 +70,12 @@
                     </button>
                   </div>
                 </div>
+                <img
+                  :class="{ right: lang == 'en' }"
+                  v-if="player.voting_rate == winner_1_rate"
+                  class="winner"
+                  src="../../assets/images/winner.png"
+                />
               </div>
             </div>
           </div>
@@ -118,7 +128,7 @@
               data-aos-once="true"
               v-if="players_2"
             >
-              <Card v-if="loading" />
+              <Card v-if="loading_2" />
               <div
                 v-else
                 class="col-lg-4 col-md-6 col-12"
@@ -154,6 +164,12 @@
                       :barValue="player.voting_rate || 0"
                     ></progress-bar>
                   </div>
+                  <img
+                    :class="{ right: lang == 'en' }"
+                    v-if="player.voting_rate == winner_2_rate"
+                    class="winner"
+                    src="../../assets/images/winner.png"
+                  />
                 </div>
               </div>
             </div>
@@ -171,8 +187,8 @@
           <!-- News -->
           <div class="title-sections">
             <h4>
-              {{ item.news.mainTitle.one }}
-              <span>{{ item.news.mainTitle.tow }}</span>
+              {{ lang == "ar" ? "أخبار" : "News" }}
+              <span>{{ lang == "ar" ? "المسابقة" : "Competition" }}</span>
             </h4>
           </div>
           <!-- News Section -->
@@ -231,7 +247,8 @@ export default {
 
   data() {
     return {
-      loading: false,
+      loading_1: false,
+      loading_2: false,
 
       relateNews: [],
       lang: localStorage.getItem("epfa_lang"),
@@ -305,7 +322,7 @@ export default {
     },
 
     GetPlayers() {
-      this.loading = true;
+      this.loading_1 = true;
       axios
         .get(`voting_month_map?voter_mac_address=${this.random_id}`, {
           headers: {
@@ -316,18 +333,23 @@ export default {
           },
         })
         .then((res) => {
-          this.loading = false;
+          this.loading_1 = false;
           this.players_1 = res.data.data.voting_map_items;
           this.best_player_map_id = res.data.data.id;
           this.month = res.data.data.month;
           this.relateNews = res.data.data.news;
-
           this.has_voted = res.data.has_voted;
+
+          this.winner_1_rate = Math.max(
+            ...this.players_1.map((item) => {
+              return +item.voting_rate;
+            })
+          );
         });
     },
 
     filterData() {
-      this.loading = true;
+      this.loading_2 = true;
       let params = {
         month: this.filter.month,
         year: this.filter.year,
@@ -344,13 +366,18 @@ export default {
           params: params,
         })
         .then((res) => {
-          this.loading = false;
+          this.loading_2 = false;
           this.players_2 = res.data.data.voting_map_items;
+
+          this.winner_2_rate = Math.max(
+            ...this.players_2.map((item) => {
+              return +item.voting_rate;
+            })
+          );
         });
     },
 
     GetMonths() {
-      this.loading = true;
       axios
         .get(`voting_months`, {
           headers: {
@@ -361,7 +388,6 @@ export default {
           },
         })
         .then((res) => {
-          this.loading = false;
           console.log(res.data);
           this.months = res.data.monthes.map((item) => {
             return {
@@ -426,6 +452,18 @@ export default {
   color: #c5c5c5;
   text-align: center;
   margin: 20px 0;
+}
+
+.winner {
+  position: absolute;
+  top: 15px;
+  left: 2px;
+  height: 25px !important;
+
+  &.right {
+    left: unset;
+    right: 2px;
+  }
 }
 
 .single-new {
@@ -504,6 +542,8 @@ export default {
 }
 
 .player {
+  position: relative;
+
   &.down {
     min-height: 200px;
   }

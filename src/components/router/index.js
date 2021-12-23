@@ -20,7 +20,7 @@ import Login from "../pages/Auth/login.vue";
 import Register from "../pages/Auth/register.vue";
 import ForgetPassword_1 from "../pages/Auth/ForgetPassword_1.vue";
 import ForgetPassword_2 from "../pages/Auth/ForgetPassword_2.vue";
-import Vote from "../pages/Vote.vue";
+import BestPlayer from "../pages/BestPlayer.vue";
 import NewVote from "../pages/NewVote.vue";
 
 import NotFound from "../pages/NotFound.vue";
@@ -102,9 +102,9 @@ const routes = [
         component: GlobalSearch,
       },
       {
-        path: "/vote",
-        name: "Vote",
-        component: Vote,
+        path: "/bestPlayer",
+        name: "BestPlayer",
+        component: BestPlayer,
       },
       {
         path: "/newVote",

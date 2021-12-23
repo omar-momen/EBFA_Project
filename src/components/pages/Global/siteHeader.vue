@@ -44,6 +44,11 @@
                     {{ item.siteHeader.vote }}
                   </router-link>
                 </li>
+                <!-- <li class="nav-item">
+                  <router-link class="nav-link" tag="a" to="/bestPlayer">
+                    {{ lang == "ar" ? "أحسن لاعب" : "Best Player" }}
+                  </router-link>
+                </li> -->
               </b-navbar-nav>
               <div class="d-flex">
                 <div class="lang-search d-flex">
