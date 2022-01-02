@@ -37,6 +37,21 @@
                   {{ contact.email }}
                 </a>
               </li>
+              <li class="publicityNumber">
+                <a href="#">
+                  <span>{{
+                    lang == "ar"
+                      ? "رقم الاشهار للجمعية"
+                      : "publicity association number"
+                  }}</span>
+                  <span class="number">
+                    {{
+                      contact.publicity_of_the_association_number ||
+                      "5456481321654"
+                    }}
+                  </span>
+                </a>
+              </li>
             </ul>
           </div>
         </div>
@@ -248,6 +263,20 @@
           color: #fff;
         }
       }
+    }
+  }
+}
+
+.publicityNumber {
+  width: fit-content;
+
+  a {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+
+    span.number {
+      color: #e2012d;
     }
   }
 }

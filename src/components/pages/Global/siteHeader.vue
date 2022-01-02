@@ -44,11 +44,11 @@
                     {{ item.siteHeader.vote }}
                   </router-link>
                 </li>
-                <!-- <li class="nav-item">
+                <li v-if="is_vote_active == 'enable'" class="nav-item">
                   <router-link class="nav-link" tag="a" to="/bestPlayer">
                     {{ lang == "ar" ? "أحسن لاعب" : "Best Player" }}
                   </router-link>
-                </li> -->
+                </li>
               </b-navbar-nav>
               <div class="d-flex">
                 <div class="lang-search d-flex">
@@ -306,6 +306,8 @@
 import textAr from "../../../json/mainText/text-ar.json";
 import textEn from "../../../json/mainText/text-en.json";
 
+import axios from "axios";
+
 export default {
   name: "Home",
   data() {
@@ -314,6 +316,8 @@ export default {
       id: localStorage.getItem("userId"),
       token: "",
       userImage: "",
+
+      is_vote_active: false,
 
       // Search
       showSearch: false,
@@ -378,6 +382,26 @@ export default {
     // Get Token
     this.token = localStorage.getItem("efba-token");
     this.userImage = localStorage.getItem("efba-userImage");
+
+    axios
+      .get("home", {
+        headers: {
+          "cache-control": "no-cache",
+          "Content-type": "application/json",
+          Accept: "application/json",
+          "Accept-Language": this.lang,
+          // lang: "ar",
+        },
+        params: {
+          type: "image",
+        },
+      })
+      .then((res) => {
+        this.is_vote_active = res.data.is_vote_active;
+      })
+      .catch(() => {
+        this.loading = false;
+      });
   },
 };
 </script>

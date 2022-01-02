@@ -1,6 +1,10 @@
 <template>
   <div class="newsPage">
-    <div v-if="!hasVoted">
+    <h1 v-if="hasVoted" class="alreadyVoted">
+      {{ lang == "ar" ? "تم التصويت بالفعل" : "Already Voted" }}
+    </h1>
+
+    <div v-else>
       <div class="dd">
         <!-- Start  Breadcrumb -->
         <div class="breadcrumb">
@@ -238,6 +242,7 @@
         <!--Football Field-->
         <div id="box"></div>
       </div>
+
       <MyModal
         @closeModel="closeModel"
         :show="showMod"
@@ -367,10 +372,6 @@
         </template>
       </MyModal>
     </div>
-
-    <h1 class="alreadyVoted">
-      {{ lang == "ar" ? "تم التصويت بالفعل" : "Already Voted" }}
-    </h1>
   </div>
 </template>
 
@@ -472,6 +473,7 @@ export default {
           this.votingPlayers.forEach((ele) => {
             this.Items = this.Items.filter((e) => e.id !== ele.voting_data_id);
           });
+          console.log(res);
         });
     },
     GetSubstitute() {
@@ -640,6 +642,7 @@ export default {
               });
               this.waiting = false;
             }, 1000);
+            location.reload();
           })
           .catch((err) => {
             setTimeout(() => {
@@ -677,6 +680,28 @@ export default {
       this.random_id = "_" + Math.random().toString(36).substr(2, 9);
       localStorage.setItem("Player_Random_Key_2", this.random_id);
     }
+
+    axios
+      .get(
+        `https://new.epfaegypt.com/api/home?type=image&mac_address=${this.random_id}`,
+        {
+          headers: {
+            "Accept-language": this.lang,
+            "cache-control": "no-cache",
+            "Content-type": "multipart/form-data",
+            Accept: "application/json",
+          },
+        }
+      )
+      .then((res) => {
+        this.loading = false;
+        this.Items = res.data.data;
+        this.votingPlayers.forEach((ele) => {
+          this.Items = this.Items.filter((e) => e.id !== ele.voting_data_id);
+        });
+        console.log(res.data.is_voted);
+        this.hasVoted = res.data.is_voted;
+      });
   },
 };
 </script>

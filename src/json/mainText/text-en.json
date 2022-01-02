@@ -243,12 +243,12 @@
           "breadcrumbContent": "Get to know the members of the Egyptian Association of Professional Footballers"
         },
         "managerHeader": {
-          "one": "Board of Directors",
-          "tow": "Administration"
+          "one": "members Board",
+          "tow": "of Directors"
         },
         "membersHeader": {
-          "one": "members",
-          "tow": "Board of Directors"
+          "one": "team",
+          "tow": "work"
         }
       },
       "EditProfile": {
