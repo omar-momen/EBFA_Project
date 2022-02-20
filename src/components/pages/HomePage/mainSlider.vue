@@ -116,6 +116,20 @@
     @media (max-width: 992px) {
       max-width: 80%;
     }
+
+    .slider-content {
+      .container {
+        & > p {
+          overflow: hidden;
+          text-overflow: ellipsis;
+          display: -webkit-box;
+          line-height: 23px;
+          max-height: 500px;
+          -webkit-line-clamp: 5;
+          -webkit-box-orient: vertical;
+        }
+      }
+    }
   }
 }
 
