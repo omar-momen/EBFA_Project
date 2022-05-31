@@ -171,16 +171,18 @@
         <div class="social">
           <ul class="links">
             <li class="link">
-              <a href=""><i class="fab fa-facebook-f"></i></a>
+              <a :href="socials.facebook"><i class="fab fa-facebook-f"></i></a>
             </li>
             <li class="link">
-              <a href=""><i class="fab fa-twitter"></i></a>
+              <a :href="socials.twitter"><i class="fab fa-twitter"></i></a>
             </li>
             <li class="link">
-              <a href=""><i class="fab fa-instagram"></i></a>
+              <a :href="socials.instagram"><i class="fab fa-instagram"></i></a>
             </li>
             <li class="link">
-              <a href=""><i class="fab fa-youtube"></i></a>
+              <a :href="socials.youtube || ''"
+                ><i class="fab fa-youtube"></i
+              ></a>
             </li>
           </ul>
         </div>
@@ -300,6 +302,8 @@ export default {
       guilds: null,
       news: null,
       mainText: [],
+
+      socials: null,
     };
   },
   mounted() {
@@ -332,6 +336,8 @@ export default {
       })
       .then((res) => {
         this.contact = res.data.data;
+        console.log("LOL", res.data);
+        this.socials = res.data.data.social;
       });
 
     axios
@@ -364,6 +370,7 @@ export default {
       })
       .then((res) => {
         this.news = res.data.homeFooterNews;
+
         // console.log("aldsmvlkdsjvldsil");
         // console.log(this.news[0].description);
       });
